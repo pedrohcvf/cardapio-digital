@@ -2,6 +2,7 @@ package com.phcfcorp.cardapio_digital.controller;
 
 import com.phcfcorp.cardapio_digital.dto.FoodRequestDto;
 import com.phcfcorp.cardapio_digital.dto.FoodResponseDto;
+import com.phcfcorp.cardapio_digital.enums.FoodCategory;
 import com.phcfcorp.cardapio_digital.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,12 @@ public class FoodController {
     @GetMapping
     public List<FoodResponseDto> getAll(){
         return foodService.getAll();
+    }
+
+    // LISTAR POR CATEGORIA
+    @GetMapping("/category/{category}")
+        public List<FoodResponseDto> getCategory(@PathVariable FoodCategory category){
+            return foodService.getByCategory(category);
     }
 
 }

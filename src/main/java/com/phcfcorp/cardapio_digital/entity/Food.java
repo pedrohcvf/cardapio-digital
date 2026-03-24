@@ -1,5 +1,6 @@
 package com.phcfcorp.cardapio_digital.entity;
 
+import com.phcfcorp.cardapio_digital.enums.FoodCategory;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -18,5 +19,7 @@ public class Food {
     private String title;
     private String image;
     private int price;
+    @Enumerated(EnumType.STRING)
+    private FoodCategory foodCategory;
 
 }
