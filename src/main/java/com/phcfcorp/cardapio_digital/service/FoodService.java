@@ -24,9 +24,9 @@ public class FoodService {
             throw new RuntimeException("O campo Preço não pode estar vazio.");
         } else if (dto.image().isEmpty() || dto.image().isBlank()){
             throw new RuntimeException("O campo Imagem não pode estar vazio");
-        } else if (dto.category() == null) {
-            throw new RuntimeException("O campo Categoria não pode estar vazio");
-        }
+        } //else if (dto.category() == null) {
+            //throw new RuntimeException("O campo Categoria não pode estar vazio");
+        //}
     }
 
     // CONVERSÃO PARA DTO
@@ -85,7 +85,6 @@ public class FoodService {
 
     // LISTAR COMIDAS POR CATEGORIA
     public List<FoodResponseDto> getByCategory(FoodCategory category){
-        return foodRepository.findByFoodCategory(category).stream().map(this::toDto).toList();
+       return foodRepository.findByFoodCategory(category).stream().map(this::toDto).toList();
     }
-
 }
